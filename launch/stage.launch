@@ -1,0 +1,31 @@
+<launch>
+	<arg name="world_file" default="$(find robots_stage)/maps/autosys/map.world" />
+	<arg name="map_file" default="$(find robots_stage)/maps/autosys/map.yaml" />
+	<arg name="robotName1" default="robot_0" />
+	<master auto="start"/>
+	<param name="/use_sim_time" value="true"/>
+
+<!-- ROBOT 1 -->
+  <group ns="$(arg robotName1)">
+    <param name="tf_prefix" value="$(arg robotName1)" />
+    <include file="$(find robots_stage)/launch/includes/single_robot.launch">
+        <arg name="robot_name" value="$(arg robotName1)"/>
+        <arg name="initial_pose_x" value="8.0"/>
+        <arg name="initial_pose_y" value="11.0"/>
+        <arg name="initial_pose_a" value="0.0"/>
+    </include>
+  </group>
+
+  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" respawn="false" >
+    <param name="frame_id" value="/map" />
+  </node>
+
+  <!-- Run without GUI args="-g" -->
+  
+  <node pkg="stage_ros" type="stageros" name="stageros" args="-g $(arg world_file)" respawn="false">
+    <param name="base_watchdog_timeout" value="0.2"/>
+  </node>
+<!--
+<!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find robots_stage)/rviz/rviz_config.rviz"/-->
+-->
+</launch>
