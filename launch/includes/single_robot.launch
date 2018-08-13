@@ -40,4 +40,4 @@
 		<arg name="initial_pose_a" value="$(arg initial_pose_a)" />
 		<arg name="global_frame_id" value="/map"/>
 	</include>	
-</launch>
+	</launch>
