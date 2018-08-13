@@ -16,7 +16,7 @@ define floorplan model
   laser_return 1
 )
 
-resolution 0.02
+resolution 0.1
 interval_sim 100  # simulation timestep in milliseconds
 
 window
