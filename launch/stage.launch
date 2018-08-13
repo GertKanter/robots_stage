@@ -25,7 +25,5 @@
   <node pkg="stage_ros" type="stageros" name="stageros" args="-g $(arg world_file)" respawn="false">
     <param name="base_watchdog_timeout" value="0.2"/>
   </node>
-<!--
 <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find robots_stage)/rviz/rviz_config.rviz"/-->
--->
 </launch>
