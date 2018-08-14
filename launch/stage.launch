@@ -10,8 +10,8 @@
     <param name="tf_prefix" value="$(arg robotName1)" />
     <include file="$(find robots_stage)/launch/includes/single_robot.launch">
         <arg name="robot_name" value="$(arg robotName1)"/>
-        <arg name="initial_pose_x" value="10.0"/>
-        <arg name="initial_pose_y" value="7.7"/>
+        <arg name="initial_pose_x" value="11.0"/>
+        <arg name="initial_pose_y" value="13.0"/>
         <arg name="initial_pose_a" value="0.0"/>
     </include>
   </group>
