@@ -1,6 +1,9 @@
 <launch>
 	<arg name="world_file" default="$(find robots_stage)/maps/autosys/map.world" />
 	<arg name="map_file" default="$(find robots_stage)/maps/autosys/map.yaml" />
+        <arg name="initial_x" default="11.0"/>
+        <arg name="initial_y" default="13.0"/>
+        <arg name="initial_a" default="0.0"/>
 	<arg name="robotName1" default="robot_0" />
 	<arg name="robotName2" default="robot_1" />
 	<param name="/use_sim_time" value="true"/>
@@ -10,9 +13,9 @@
     <param name="tf_prefix" value="$(arg robotName1)" />
     <include file="$(find robots_stage)/launch/includes/single_robot.launch">
         <arg name="robot_name" value="$(arg robotName1)"/>
-        <arg name="initial_pose_x" value="11.0"/>
-        <arg name="initial_pose_y" value="13.0"/>
-        <arg name="initial_pose_a" value="0.0"/>
+        <arg name="initial_pose_x" value="$(arg initial_x)"/>
+        <arg name="initial_pose_y" value="$(arg initial_y)"/>
+        <arg name="initial_pose_a" value="$(arg initial_a)"/>
     </include>
   </group>
 
