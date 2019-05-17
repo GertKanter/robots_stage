@@ -11,7 +11,7 @@
 
 
 <!-- If "include" file is not specified, just include a single robot -->
-  <group ns="$(arg robotName1)" if="$(eval arg('include') == ''">
+  <group ns="$(arg robotName1)" if="$(eval arg('include') == '')">
     <param name="tf_prefix" value="$(arg robotName1)" />
     <include file="$(find robots_stage)/launch/includes/single_robot.launch">
         <arg name="robot_name" value="$(arg robotName1)"/>
@@ -20,7 +20,7 @@
         <arg name="initial_pose_a" value="$(arg initial_a)"/>
     </include>
   </group>
-  <group if="$(eval arg('include') != ''">
+  <group if="$(eval arg('include') != '')">
     <include file="$(arg include)"/>
   </group>
 
