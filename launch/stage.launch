@@ -7,9 +7,11 @@
 	<arg name="robotName1" default="robot_0" />
 	<arg name="robotName2" default="robot_1" />
 	<param name="/use_sim_time" value="true"/>
+        <arg name="include" default=""/>
 
-<!-- ROBOT 1 -->
-  <group ns="$(arg robotName1)">
+
+<!-- If "include" file is not specified, just include a single robot -->
+  <group ns="$(arg robotName1)" if="$(eval arg('include') == ''">
     <param name="tf_prefix" value="$(arg robotName1)" />
     <include file="$(find robots_stage)/launch/includes/single_robot.launch">
         <arg name="robot_name" value="$(arg robotName1)"/>
@@ -17,6 +19,9 @@
         <arg name="initial_pose_y" value="$(arg initial_y)"/>
         <arg name="initial_pose_a" value="$(arg initial_a)"/>
     </include>
+  </group>
+  <group if="$(eval arg('include') != ''">
+    <include file="$(arg include)"/>
   </group>
 
   <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" respawn="false" >
