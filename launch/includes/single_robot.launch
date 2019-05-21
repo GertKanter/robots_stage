@@ -31,7 +31,7 @@
 		<rosparam file="$(find turtlebot_navigation)/param/navfn_global_planner_params.yaml" command="load" />
                 <param name="global_costmap/robot_base_frame" value="$(arg robot_name)/base_footprint"/>
                 <param name="local_costmap/robot_base_frame" value="$(arg robot_name)/base_footprint"/>
-                <param name="local_costmap/global_frame" value="$(arg robot_name)/odom"/
+                <param name="local_costmap/global_frame" value="$(arg robot_name)/odom"/>
 	</node>
 
 <include file="$(find robots_stage)/launch/includes/amcl.launch.xml">
