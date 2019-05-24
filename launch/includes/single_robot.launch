@@ -26,7 +26,7 @@
 		<rosparam file="$(find robots_stage)/param/local_costmap_params.yaml" command="load" />
 		<rosparam file="$(find robots_stage)/param/global_costmap_params.yaml" command="load" />
 		<rosparam file="$(find robots_stage)/param/dwa_local_planner_params.yaml" command="load" />
-		<rosparam file="$(find turtlebot_navigation)/param/move_base_params.yaml" command="load" />
+		<rosparam file="$(find robots_stage)/param/move_base_params.yaml" command="load" />
 		<rosparam file="$(find turtlebot_navigation)/param/global_planner_params.yaml" command="load" />
 		<rosparam file="$(find turtlebot_navigation)/param/navfn_global_planner_params.yaml" command="load" />
                 <param name="global_costmap/robot_base_frame" value="$(arg robot_name)/base_footprint"/>
