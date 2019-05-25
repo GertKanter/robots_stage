@@ -25,17 +25,4 @@ define turtlebot position
   
   kinect(pose [ -0.1 0.0 -0.11 0.0 ])
 
-  block
-      (
-            points 8
-            point[0] [0.75 0]
-            point[1] [1 0.25]
-            point[2] [1 0.75]
-            point[3] [0.75 1]
-            point[4] [0.25 1]
-            point[5] [0 0.75]
-            point[6] [0 0.25]
-            point[7] [0.25 0]
-            z [0 1]
-      )
 )
