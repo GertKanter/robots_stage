@@ -1,0 +1,21 @@
+<launch>
+  <arg name="initial_x" default="11.0"/>
+  <arg name="initial_y" default="13.0"/>
+  <arg name="initial_a" default="0.0"/>
+  <arg name="include" default=""/>
+  <arg name="name" />
+
+  <!-- If "include" file is not specified, just include a single robot -->
+  <group ns="$(arg robotName1)" if="$(eval arg('include') == '')">
+    <param name="tf_prefix" value="$(arg name)" />
+    <include file="$(find robots_stage)/launch/includes/single_robot.launch">
+        <arg name="robot_name" value="$(arg name)"/>
+        <arg name="initial_pose_x" value="$(arg initial_x)"/>
+        <arg name="initial_pose_y" value="$(arg initial_y)"/>
+        <arg name="initial_pose_a" value="$(arg initial_a)"/>
+    </include>
+  </group>
+  <group if="$(eval arg('include') != '')">
+    <include file="$(arg include)"/>
+  </group>
+</launch>
